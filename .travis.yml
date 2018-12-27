@@ -1,9 +1,11 @@
 sudo: required
 services:
-  - docker
-
+- docker
 before_install:
-  - docker build -t mps/docker-react -f Dockerfile.dev .
-
+- docker build -t mps/docker-react -f Dockerfile.dev .
 script:
-  - docker run mps/docker-react npm run test -- --coverage
+- docker run mps/docker-react npm run test -- --coverage
+deploy:
+  provider: heroku
+  api_key:
+    secure: XlVt+Mm8kdQz8RVOLXYIZivNeo/Vj+UlZIllh8i1xeZF/91rJ5KS5iEMxv8Oj1GJYfRTLO/2yyUsZ1QKLR7B+E8I4YRVtMcdqSR1WdzVPrV2DR3qsCkZuw1R7Z1QB8eKxPOEUnITBZsP5P3gIJD+kwUrwA0Im6JuCPkFRu5MIZqwxhEk7Ds1iZqQrpwO1qiABm2Cd19fbOtOHv+oJDka1wfEMCe9hcYpr9E1mckYr9vvmDr8mVvHLDN4wkYpSnhwWt0LXfB6WAZpzJj3NSo/H2m0C43tZ0tp3AUJH3WT2bNIDNPdtr8KLDJiulUpVtxwVH32CwDZSp4oX1E1NBa8oZMM6QDVTUJrUm6eEI3ST8G1KtsZmm3l2AVj3eRIZc5T/WkU1l0xwy9ckOMj+sHtz7oaNc/L6d0NZq2KlMzjPHtGxbXMBrNGaS2ETEWQQV1J3x64+kibl9rqDnKXmz/pY97gkOoldCoaBtyyyus9lMAyTHnHBnOfp++MpnFyOwT8U6XjMbLhTNcpseaUjHkXnENBv0efeP9Z9LyphWY0v4G5WNPgnzsHSNVGMKbltPtd0ywyu32MPkHJdtQujOLeOTThne3RJ3CtNtHGl06qvKj9DIJo0OUyj2ogPDs3kgmDbtwezZycXdA/qftqvh7sDysHdlU1HGkB7so6r1VXHbE=
